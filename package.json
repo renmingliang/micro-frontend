@@ -1,0 +1,23 @@
+{
+  "name": "micro-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "micro:install": "npm-run-all --serial install:*",
+    "micro:start": "npm-run-all --parallel start:*",
+    "install:main": "cd vue-main && yarn",
+    "start:main": "cd vue-main && yarn serve",
+    "install:vue1": "cd vue-sub1 && yarn",
+    "start:vue1": "cd vue-sub1 && yarn serve",
+    "install:vue2": "cd vue-sub2 && yarn",
+    "start:vue2": "cd vue-sub2 && yarn serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {}
+}
