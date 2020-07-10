@@ -69,6 +69,7 @@ registerMicroApps(
   },
 );
 
+// 需要监听修改的值 - 须在主容器中事先声明
 const { onGlobalStateChange, setGlobalState } = initGlobalState({
   user: 'qiankun'
 });
