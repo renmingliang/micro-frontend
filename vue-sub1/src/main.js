@@ -1,3 +1,6 @@
+
+/* eslint-disable */
+
 import './public-path';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -11,7 +14,7 @@ let router = null;
 let instance = null;
 
 function render(props = {}) {
-  const { container, data } = props;
+  const { container } = props;
   router = new VueRouter({
     base: window.__POWERED_BY_QIANKUN__ ? '/vue-sub1' : '/',
     mode: 'history',
@@ -21,7 +24,7 @@ function render(props = {}) {
   instance = new Vue({
     router,
     store,
-    render: h => h(App, { props: { data }}),
+    render: h => h(App),
   }).$mount(container ? container.querySelector('#app') : '#app');
 }
 
@@ -29,22 +32,46 @@ if (!window.__POWERED_BY_QIANKUN__) {
   render();
 }
 
+let setGlobal = null;
+
+function storeRegist(props) {
+  const user = {
+    namespaced: true,
+    state: props.vuex.user,
+    mutations: {
+      getGlobal(state, payload) {
+        state.user = payload.user
+      },
+      setGlobal(state, payload) {
+        setGlobal && setGlobal(payload)
+      }
+    }
+  }
+
+  store.registerModule('sub1', {
+    namespaced: true,
+    modules: {
+      user
+    }
+  })
+}
+
 function storeTest(props) {
   props.onGlobalStateChange &&
     props.onGlobalStateChange(
-      (value, prev) => console.log(`[vue-sub1_onGlobalStateChange - ${props.name}]:`, value, prev),
+      (value, prev) => {
+        console.log(`[vue-sub1_onGlobalStateChange - ${props.name}]:`, value, prev)
+        store.commit('sub1/user/getGlobal', value)
+      },
       true,
     );
-  props.setGlobalState &&
-    props.setGlobalState({
-      ignore: props.name,
-      user: props.name
-    });
+
+  setGlobal = props.setGlobalState;
 }
 
 export async function bootstrap(props) {
   console.log('[vue-sub1] vue app bootstraped', props);
-  Vue.prototype.$rootProps = props.data
+  storeRegist(props);
 }
 
 export async function mount(props) {

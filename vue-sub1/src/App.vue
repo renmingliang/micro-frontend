@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <button @click="emitRoot">触发父应用-Vue-main</button>
-    <h1>{{ data }}</h1>
+    <h1>{{ user }}</h1>
     <button @click="setDate">子应用-Vue-sub1</button>
     <h2>{{ date }}</h2>
     <div id="nav">
@@ -16,17 +16,13 @@
 import { mapState } from 'vuex'
 
 export default {
-  props: {
-    data: {
-      type: Object
-    }
-  },
   computed: {
     ...mapState('autoTest', ['date']),
+    ...mapState('sub1/user', ['user']),
   },
   methods: {
     emitRoot() {
-      console.log(this.$rootProps)
+      this.$store.commit('sub1/user/setGlobal', { user: 'vue-sub1' })
     },
     setDate() {
       this.$store.commit('autoTest/changeSubDate')

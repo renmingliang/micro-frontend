@@ -1,11 +1,11 @@
 const user = {
   namespaced: true,
   state: {
-    name: 'master'
+    user: 'master'
   },
   mutations: {
     changeMainName(state, paylod) {
-      state.name = paylod
+      state.user = paylod
     }
   },
   actions: {

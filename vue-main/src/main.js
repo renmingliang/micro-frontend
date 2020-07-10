@@ -17,9 +17,14 @@ render({ loading: true });
 
 const loader = loading => render({ loading });
 
-// 传递子组件数据
+// 向下传递子组件数据
 const msg = {
-  data: store.state
+  // vuex数据
+  vuex: {
+    user: store.state.user
+  }
+  // 公用组件
+  // 公用方法
 }
 
 /**

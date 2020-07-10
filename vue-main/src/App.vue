@@ -3,6 +3,8 @@
     <!-- 标题栏 -->
     <header class="mainapp-header">
       <h1>QianKun</h1>
+      <h2>{{ user }}</h2>
+      <button @click="changeName">hello</button>
     </header>
     <div class="mainapp-main">
       <!-- 侧边栏 -->
@@ -17,10 +19,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
+  computed: {
+    ...mapState('user', ['user'])
+  },
   methods: {
     push(subapp) {
       history.pushState(null, subapp, subapp)
+    },
+    changeName() {
+      this.$store.commit('user/changeMainName', 'hello')
     }
   }
 }
