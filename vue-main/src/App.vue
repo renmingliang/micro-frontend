@@ -32,7 +32,15 @@ export default {
     changeName() {
       this.$store.commit('user/changeMainName', 'hello')
     }
-  }
+  },
+  watch: {
+    $route: {
+      handler(to) {
+        console.log('watch-route', to)
+      },
+      immediate: true
+    }
+  },
 }
 </script>
 
