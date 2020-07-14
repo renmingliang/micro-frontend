@@ -28,6 +28,7 @@ export default {
   methods: {
     push(subapp) {
       history.pushState(null, subapp, subapp)
+      // this.$router.push(subapp)
     },
     changeName() {
       this.$store.commit('user/changeMainName', 'hello')

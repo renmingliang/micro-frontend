@@ -70,16 +70,9 @@ registerMicroApps(
 );
 
 // 需要监听修改的值 - 须在主容器中事先声明
-const { onGlobalStateChange, setGlobalState } = initGlobalState({
-  user: 'qiankun'
-});
+const { onGlobalStateChange } = initGlobalState(store.state.user);
 
 onGlobalStateChange((value, prev) => console.log('[main_onGlobalStateChange - master]:', value, prev));
-
-setGlobalState({
-  ignore: 'master',
-  user: 'master'
-});
 
 /**
  * Step3 设置默认进入的子应用

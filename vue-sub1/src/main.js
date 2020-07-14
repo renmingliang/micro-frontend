@@ -29,26 +29,40 @@ function render(props = {}) {
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
+  storeRegist({
+    name: 'vue-sub1',
+    vuex: {
+      user: {
+        user: 'signal-test'
+      }
+    }
+  });
   render();
 }
 
-let setGlobal = null;
+let setGlobalState = null;
 
-function storeRegist(props) {
+function storeRegist(props = {}) {
   const user = {
     namespaced: true,
     state: props.vuex.user,
     mutations: {
-      getGlobal(state, payload) {
+      GET_GLOBAL(state, payload) {
         state.user = payload.user
-      },
-      setGlobal(state, payload) {
-        setGlobal && setGlobal(payload)
+      }
+    },
+    actions: {
+      setGlobal({ commit }, params) {
+        if (setGlobalState) {
+          setGlobalState(params)
+        } else {
+          commit('GET_GLOBAL', params)
+        }
       }
     }
   }
 
-  store.registerModule('sub1', {
+  store.registerModule(props.name, {
     namespaced: true,
     modules: {
       user
@@ -61,12 +75,12 @@ function storeTest(props) {
     props.onGlobalStateChange(
       (value, prev) => {
         console.log(`[vue-sub1_onGlobalStateChange - ${props.name}]:`, value, prev)
-        store.commit('sub1/user/getGlobal', value)
+        store.commit('vue-sub1/user/GET_GLOBAL', value)
       },
       true,
     );
 
-  setGlobal = props.setGlobalState;
+  setGlobalState = props.setGlobalState;
 }
 
 export async function bootstrap(props) {

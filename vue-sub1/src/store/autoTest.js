@@ -4,8 +4,8 @@ const autoTest = {
     date: '2020-07-03'
   },
   mutations: {
-    changeSubDate(state) {
-      state.date = new Date()
+    changeSubDate(state, payload) {
+      state.date = payload.date
     }
   },
   actions: {

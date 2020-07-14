@@ -18,14 +18,14 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState('autoTest', ['date']),
-    ...mapState('sub1/user', ['user']),
+    ...mapState('vue-sub1/user', ['user']),
   },
   methods: {
     emitRoot() {
-      this.$store.commit('sub1/user/setGlobal', { user: 'vue-sub1' })
+      this.$store.dispatch('vue-sub1/user/setGlobal', { user: 'vue-sub1' })
     },
     setDate() {
-      this.$store.commit('autoTest/changeSubDate')
+      this.$store.commit('autoTest/changeSubDate', { date: new Date() })
     }
   }
 }
