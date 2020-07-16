@@ -34,40 +34,40 @@ const msg = {
 registerMicroApps(
   [
     {
-      name: 'vue-sub1',
-      entry: '//localhost:7100',
-      container: '#subapp-viewport',
+      name: "vue-sub1",
+      entry: "//localhost:7100",
+      container: "#subapp-viewport",
       loader,
-      activeRule: '/vue-sub1',
-      props: msg
+      activeRule: "/vue-sub1",
+      props: msg,
     },
     {
-      name: 'vue-sub2',
-      entry: '//localhost:7101',
-      container: '#subapp-viewport',
+      name: "vue-sub2",
+      entry: "//localhost:7101",
+      container: "#subapp-viewport",
       loader,
-      activeRule: '/vue-sub2',
-      props: msg
+      activeRule: "/vue-sub2",
+      props: msg,
     }
   ],
   {
     beforeLoad: [
-      app => {
-        console.log('[LifeCycle] before load %c%s', 'color: green;', app.name);
+      (app) => {
+        console.log("[LifeCycle] before load %c%s", "color: green;", app.name)
       },
     ],
     beforeMount: [
-      app => {
-        console.log('[LifeCycle] before mount %c%s', 'color: green;', app.name);
+      (app) => {
+        console.log("[LifeCycle] before mount %c%s", "color: green;", app.name)
       },
     ],
     afterUnmount: [
-      app => {
-        console.log('[LifeCycle] after unmount %c%s', 'color: green;', app.name);
+      (app) => {
+        console.log("[LifeCycle] after unmount %c%s", "color: green;", app.name)
       },
     ],
-  },
-);
+  }
+)
 
 // 需要监听修改的值 - 须在主容器中事先声明
 const { onGlobalStateChange } = initGlobalState(store.state.user);
