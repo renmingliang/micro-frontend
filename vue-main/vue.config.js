@@ -2,6 +2,7 @@
 const port = 7099; // dev port
 
 module.exports = {
+  publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
   devServer: {

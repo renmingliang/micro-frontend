@@ -8,6 +8,7 @@ function resolve(dir) {
 const port = 7100; // dev port
 
 module.exports = {
+  publicPath: './',
   /**
    * You will need to set publicPath if you plan to deploy your site under a sub path,
    * for example GitHub Pages. If you plan to deploy your site to https://foo.github.io/bar/,
