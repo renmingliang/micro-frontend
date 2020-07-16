@@ -9,8 +9,8 @@
     <div class="mainapp-main">
       <!-- 侧边栏 -->
       <ul class="mainapp-sidemenu">
-        <li @click="push('/vue-sub1')">Vue-sub1</li>
-        <li @click="push('/vue-sub2')">Vue-sub2</li>
+        <li @click="push('vue-sub1')">Vue-sub1</li>
+        <li @click="push('vue-sub2')">Vue-sub2</li>
       </ul>
       <!-- 子应用  -->
       <main id="subapp-container"></main>
