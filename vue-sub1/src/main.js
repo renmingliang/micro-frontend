@@ -16,7 +16,7 @@ let instance = null;
 function render(props = {}) {
   const { container } = props;
   router = new VueRouter({
-    base: window.__POWERED_BY_QIANKUN__ ? '/vue-sub1' : '/',
+    base: window.__POWERED_BY_QIANKUN__ ? '/micro/vue-main/vue-sub1' : '/',
     mode: 'history',
     routes,
   });

@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     push(subapp) {
-      history.pushState(null, subapp, subapp)
+      history.pushState(null, subapp, '/micro/vue-main' + subapp)
       // this.$router.push(subapp)
     },
     changeName() {
