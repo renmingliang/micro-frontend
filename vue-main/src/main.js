@@ -36,6 +36,7 @@ registerMicroApps(
     {
       name: "vue-sub1",
       entry: "//localhost:7101",
+      // entry: "//renmingliang.github.io/micro/vue-sub1/",
       container: "#subapp-viewport",
       loader,
       activeRule: "/vue-sub1",
@@ -44,6 +45,7 @@ registerMicroApps(
     {
       name: "vue-sub2",
       entry: "//localhost:7102",
+      // entry: "//renmingliang.github.io/micro/vue-sub2/",
       container: "#subapp-viewport",
       loader,
       activeRule: "/vue-sub2",
@@ -52,6 +54,7 @@ registerMicroApps(
     {
       name: "react-sub3",
       entry: "//localhost:7103",
+      // entry: "//renmingliang.github.io/micro/react-sub3/",
       container: "#subapp-viewport",
       loader,
       activeRule: "/react-sub3",
