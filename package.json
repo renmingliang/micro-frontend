@@ -11,7 +11,9 @@
     "install:vue1": "cd vue-sub1 && yarn",
     "start:vue1": "cd vue-sub1 && yarn serve",
     "install:vue2": "cd vue-sub2 && yarn",
-    "start:vue2": "cd vue-sub2 && yarn serve"
+    "start:vue2": "cd vue-sub2 && yarn serve",
+    "install:react3": "cd react-sub3 && yarn",
+    "start:react3": "cd react-sub3 && yarn start"
   },
   "keywords": [],
   "author": "",

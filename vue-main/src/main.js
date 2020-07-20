@@ -35,7 +35,7 @@ registerMicroApps(
   [
     {
       name: "vue-sub1",
-      entry: "//localhost:7100",
+      entry: "//localhost:7101",
       container: "#subapp-viewport",
       loader,
       activeRule: "/vue-sub1",
@@ -43,10 +43,18 @@ registerMicroApps(
     },
     {
       name: "vue-sub2",
-      entry: "//localhost:7101",
+      entry: "//localhost:7102",
       container: "#subapp-viewport",
       loader,
       activeRule: "/vue-sub2",
+      props: msg,
+    },
+    {
+      name: "react-sub3",
+      entry: "//localhost:7103",
+      container: "#subapp-viewport",
+      loader,
+      activeRule: "/react-sub3",
       props: msg,
     }
   ],
@@ -70,10 +78,14 @@ registerMicroApps(
 )
 
 // 需要监听修改的值 - 须在主容器中事先声明
-const { onGlobalStateChange } = initGlobalState(store.state.user);
+const { onGlobalStateChange, setGlobalState } = initGlobalState(store.state.user);
 
-onGlobalStateChange((value, prev) => console.log('[main_onGlobalStateChange - master]:', value, prev));
+onGlobalStateChange((value, prev) => {
+  console.log('[main_onGlobalStateChange - master]:', value, prev);
+  store.commit('user/changeMainName', value.user)
+});
 
+setGlobalState({ ignore: 'qiankun', user: 'master'});
 /**
  * Step3 设置默认进入的子应用
  */

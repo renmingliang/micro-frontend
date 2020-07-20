@@ -45,7 +45,7 @@ let setGlobalState = null;
 function storeRegist(props = {}) {
   const user = {
     namespaced: true,
-    state: props.vuex.user,
+    state: props.vuex.user, // 引用的同一个数据副本
     mutations: {
       GET_GLOBAL(state, payload) {
         state.user = payload.user

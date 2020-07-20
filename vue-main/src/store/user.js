@@ -1,7 +1,7 @@
 const user = {
   namespaced: true,
   state: {
-    user: 'master'
+    user: ''
   },
   mutations: {
     changeMainName(state, paylod) {

@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <button @click="emitRoot">触发父应用-Vue-main</button>
-    <h1>{{ user }}</h1>
-    <button @click="setDate">子应用-Vue-sub1</button>
-    <h2>{{ date }}</h2>
+    <button @click="emitRoot">子应用触发父应用数据变更</button>
+    <h2>子应用：{{ user }}</h2>
+    <button @click="setDate">子应用改变自身数据</button>
+    <h3>{{ date }}</h3>
     <div id="nav">
+      <h4>子应用多路由切换</h4>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
@@ -41,7 +42,7 @@ export default {
 }
 
 #nav {
-  padding: 30px;
+  padding: 10px;
 }
 
 #nav a {

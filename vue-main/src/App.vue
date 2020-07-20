@@ -2,18 +2,21 @@
   <div class="mainapp">
     <!-- 标题栏 -->
     <header class="mainapp-header">
-      <h1>QianKun</h1>
-      <h2>{{ user }}</h2>
-      <button @click="changeName">hello</button>
+      <h1>微前端示例Demo</h1>
+      <h2>主应用：{{ user }}</h2>
+      <button @click="changeName">主应用改变数据</button>
     </header>
     <div class="mainapp-main">
       <!-- 侧边栏 -->
       <ul class="mainapp-sidemenu">
-        <li @click="push('vue-sub1')">Vue-sub1</li>
-        <li @click="push('vue-sub2')">Vue-sub2</li>
+        <li @click="push('/vue-sub1')">子应用A</li>
+        <li @click="push('/vue-sub2')">子应用B</li>
+        <li @click="push('/react-sub3')">子应用C</li>
       </ul>
       <!-- 子应用  -->
-      <main id="subapp-container"></main>
+      <div class="mainapp-subapp">
+        <main id="subapp-container"></main>
+      </div>
     </div>
   </div>
 </template>
@@ -54,8 +57,35 @@ export default {
   color: #2c3e50;
 }
 
-li:hover {
+.mainapp-header {
+  margin: 20px auto;
+}
+
+.mainapp-sidemenu {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  border: 1px solid #ddd;
+}
+
+.mainapp-sidemenu li {
+  flex: 1;
+  padding: 10px 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.mainapp-sidemenu li+li {
+  border-left: 1px solid #ddd;
+}
+
+.mainapp-sidemenu li:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.mainapp-subapp {
+  margin-top: 20px;
 }
 </style>
