@@ -35,29 +35,26 @@ registerMicroApps(
   [
     {
       name: "vue-sub1",
-      // entry: "//localhost:7101",
-      entry: "//renmingliang.github.io/micro/vue-sub1/",
+      entry: "//localhost:7101",
       container: "#subapp-viewport",
       loader,
-      activeRule: "/micro/vue-main/vue-sub1",
+      activeRule: "/vue-sub1",
       props: msg,
     },
     {
       name: "vue-sub2",
-      // entry: "//localhost:7102",
-      entry: "//renmingliang.github.io/micro/vue-sub2/",
+      entry: "//localhost:7102",
       container: "#subapp-viewport",
       loader,
-      activeRule: "/micro/vue-main/vue-sub2",
+      activeRule: "/vue-sub2",
       props: msg,
     },
     {
       name: "react-sub3",
-      // entry: "//localhost:7103",
-      entry: "//renmingliang.github.io/micro/react-sub3/",
+      entry: "//localhost:7103",
       container: "#subapp-viewport",
       loader,
-      activeRule: "/micro/vue-main/react-sub3",
+      activeRule: "/react-sub3",
       props: msg,
     }
   ],
@@ -92,7 +89,7 @@ setGlobalState({ ignore: 'qiankun', user: 'master'});
 /**
  * Step3 设置默认进入的子应用
  */
-setDefaultMountApp('/micro/vue-main/vue-sub1');
+setDefaultMountApp('/vue-sub1');
 
 /**
  * Step4 启动应用

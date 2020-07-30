@@ -30,8 +30,8 @@ export default {
   },
   methods: {
     push(subapp) {
-      history.pushState(null, subapp, '/micro/vue-main' + subapp)
-      // this.$router.push(subapp)
+      // history.pushState(null, subapp, '/micro/vue-main' + subapp)
+      this.$router.push(subapp)
     },
     changeName() {
       this.$store.commit('user/changeMainName', 'hello')
