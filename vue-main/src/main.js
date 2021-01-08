@@ -2,7 +2,7 @@
 import './entry'
 import store from './store'
 
-import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start, initGlobalState } from 'qiankun';
+import { registerMicroApps, runAfterFirstMounted, /* setDefaultMountApp, */ start, initGlobalState } from 'qiankun';
 
 /**
  * 主应用 **可以使用任意技术栈**
@@ -13,7 +13,7 @@ import render from './render/VueRender';
 /**
  * Step1 初始化应用（可选）
  */
-render({ loading: true });
+render({ loading: false });
 
 const loader = loading => render({ loading });
 
@@ -89,7 +89,7 @@ setGlobalState({ ignore: 'qiankun', user: 'master'});
 /**
  * Step3 设置默认进入的子应用
  */
-setDefaultMountApp('/vue-sub1');
+// setDefaultMountApp('/vue-sub1');
 
 /**
  * Step4 启动应用

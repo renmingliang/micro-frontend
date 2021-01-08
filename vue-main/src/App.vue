@@ -1,5 +1,9 @@
 <template>
   <div class="mainapp">
+    <ul>
+      <li><router-link :to="{name: 'Home'}">主应用 - home</router-link></li>
+      <li><router-link :to="{name: 'About'}">主应用 - about</router-link></li>
+    </ul>
     <!-- 标题栏 -->
     <header class="mainapp-header">
       <h1>微前端示例Demo</h1>
@@ -15,7 +19,11 @@
       </ul>
       <!-- 子应用  -->
       <div class="mainapp-subapp">
-        <main id="subapp-container"></main>
+        <!-- 主应用渲染区，用于挂载主应用路由触发的组件 -->
+        <router-view v-show="$route.name" />
+
+        <!-- 子应用渲染区，用于挂载子应用节点 -->
+        <div v-show="!$route.name" id="subapp-container"></div>
       </div>
     </div>
   </div>
