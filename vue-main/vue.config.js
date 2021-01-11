@@ -2,7 +2,8 @@
 const port = 7100; // dev port
 
 module.exports = {
-  publicPath: './',
+  // publicPath: './', // hash - 可相对地址
+  publicPath: '/', // history - 必须绝对地址
   outputDir: 'dist',
   assetsDir: 'static',
   devServer: {
