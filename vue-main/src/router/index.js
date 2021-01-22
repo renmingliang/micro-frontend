@@ -6,20 +6,14 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
-    path: '/',
-    component: Layout,
-    children: [
-      {
-        path: '/home',
-        name: 'Home',
-        component: Home,
-      }
-    ]
+    path: '/about',
+    name: 'About',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/child',
+    path: '/:OID(\\d+)',
     component: Layout,
     children: [
       {
@@ -30,9 +24,20 @@ Vue.use(VueRouter)
     ]
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/',
+    component: Layout,
+    children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: Home,
+      },
+      {
+        path: '*',
+        name: 'sub',
+        component: () => import(/* webpackChunkName: "child" */ '../views/Child.vue')
+      }
+    ]
   }
 ]
 

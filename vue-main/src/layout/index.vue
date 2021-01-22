@@ -13,9 +13,9 @@
     <div class="mainapp-main">
       <!-- 侧边栏 -->
       <ul class="mainapp-sidemenu">
-        <li @click="push('/child/vue-sub1')">子应用A</li>
-        <li @click="push('/child/vue-sub2')">子应用B</li>
-        <li @click="push('/child/react-sub3')">子应用C</li>
+        <li @click="push('/1/vue-sub1')">子应用A</li>
+        <li @click="push('/vue-sub2')">子应用B</li>
+        <li @click="push('/1/react-sub3')">子应用C</li>
       </ul>
       <!-- 子应用  -->
       <div class="mainapp-subapp">

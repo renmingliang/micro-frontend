@@ -1,4 +1,4 @@
-import { registerMicroApps, runAfterFirstMounted, /* setDefaultMountApp, */ start, initGlobalState } from 'qiankun';
+import { registerMicroApps, runAfterFirstMounted, /* setDefaultMountApp, start, */ initGlobalState } from 'qiankun';
 
 import store from './store';
 
@@ -6,14 +6,14 @@ import store from './store';
  * 主应用 **可以使用任意技术栈**
  * 以下分别是 React 和 Vue 的示例，可切换尝试
  */
-import render from './render/VueRender';
+// import render from './render/VueRender';
 
 /**
  * Step1 初始化应用（可选）
  */
-render({ loading: false });
+// render({ loading: false });
 
-const loader = loading => render({ loading });
+// const loader = loading => render({ loading });
 
 // 向下传递子组件数据
 const msg = {
@@ -28,34 +28,33 @@ const msg = {
 /**
  * Step2 注册子应用
  */
-
-registerMicroApps(
-  [
-    {
-      name: "vue-sub1",
-      entry: "//localhost:7101",
-      container: "#subapp-viewport",
-      loader,
-      activeRule: "/vue-sub1",
-      props: msg,
-    },
-    {
-      name: "vue-sub2",
-      entry: "//localhost:7102",
-      container: "#subapp-viewport",
-      loader,
-      activeRule: "/vue-sub2",
-      props: msg,
-    },
-    {
-      name: "react-sub3",
-      entry: "//localhost:7103",
-      container: "#subapp-viewport",
-      loader,
-      activeRule: "/react-sub3",
-      props: msg,
-    }
-  ],
+export const apps = [
+  {
+    name: "vue-sub1",
+    entry: "//localhost:7101",
+    container: "#subapp-container",
+    // loader,
+    activeRule: "/:OID(\\d+)/vue-sub1",
+    props: msg,
+  },
+  {
+    name: "vue-sub2",
+    entry: "//localhost:7102",
+    container: "#subapp-container",
+    // loader,
+    activeRule: "/vue-sub2",
+    props: msg,
+  },
+  {
+    name: "react-sub3",
+    entry: "//localhost:7103",
+    container: "#subapp-container",
+    // loader,
+    activeRule: "/:OID(\\d+)/react-sub3",
+    props: msg,
+  }
+]
+registerMicroApps(apps,
   {
     beforeLoad: [
       (app) => {
@@ -87,12 +86,12 @@ setGlobalState({ ignore: 'qiankun', user: 'master'});
 /**
  * Step3 设置默认进入的子应用
  */
-// setDefaultMountApp('/vue-sub1');
+// setDefaultMountApp('/1/vue-sub1');
 
 /**
  * Step4 启动应用
  */
-start();
+// start();
 
 runAfterFirstMounted(() => {
   console.log('[MainApp] first app mounted');
