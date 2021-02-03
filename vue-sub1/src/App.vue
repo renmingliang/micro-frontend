@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <base-main title="vue-sub1"/>
     <button @click="emitRoot">子应用触发父应用数据变更</button>
     <h2>子应用：{{ user }}</h2>
     <button @click="setDate">子应用改变自身数据</button>

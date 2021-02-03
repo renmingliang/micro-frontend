@@ -1,6 +1,7 @@
 import { registerMicroApps, runAfterFirstMounted, /* setDefaultMountApp, start, */ initGlobalState } from 'qiankun';
 
 import store from './store';
+import BaseMain from './components/base-main';
 
 /**
  * 主应用 **可以使用任意技术栈**
@@ -17,11 +18,14 @@ import store from './store';
 
 // 向下传递子组件数据
 const msg = {
-  // vuex数据
+  // 共享数据
   vuex: {
     user: store.state.user
-  }
+  },
   // 公用组件
+  components: {
+    BaseMain
+  }
   // 公用方法
 }
 

@@ -1,12 +1,12 @@
 
 /* eslint-disable */
-
 import './public-path';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
 import routes from './router';
 import store from './store';
+import register from './register';
 
 Vue.config.productionTip = false;
 
@@ -16,7 +16,7 @@ let instance = null;
 function render(props = {}) {
   const { container } = props;
   router = new VueRouter({
-    base: '/',
+    base: window.__POWERED_BY_QIANKUN__ ? '/vue-sub1' : '/',
     routes
   });
 
@@ -85,6 +85,7 @@ function storeTest(props) {
 export async function bootstrap(props) {
   console.log('[vue-sub1] vue app bootstraped', props);
   storeRegist(props);
+  register(props);
 }
 
 export async function mount(props) {
