@@ -1,7 +1,7 @@
 import { registerMicroApps, runAfterFirstMounted, /* setDefaultMountApp, start, */ initGlobalState } from 'qiankun';
 
 import store from './store';
-import BaseMain from './components/base-main';
+import components from './components';
 
 /**
  * 主应用 **可以使用任意技术栈**
@@ -23,9 +23,7 @@ const msg = {
     user: store.state.user
   },
   // 公用组件
-  components: {
-    BaseMain
-  }
+  components,
   // 公用方法
 }
 

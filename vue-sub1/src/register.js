@@ -2,14 +2,11 @@ import Vue from 'vue';
 
 const register = function (props) {
   const { components } = props;
-  if (register.installed || !components) {
-    return
-  }
-  register.installed = true;
-  Object.keys(components).forEach(key => {
-    const Component = components[key]
-    Vue.component(Component.name, Component)
-  })
+  // 单组件注册-按需加载
+  // const BaseMain = components.BaseMain;
+  // Vue.use(BaseMain);
+  // 批量注册-全量
+  Vue.use(components)
 }
 
 export default register;
