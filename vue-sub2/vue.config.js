@@ -19,6 +19,7 @@ module.exports = {
   outputDir: 'dist',
   assetsDir: 'static',
   filenameHashing: true,
+  productionSourceMap: false,
   // tweak internal webpack configuration.
   // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
   devServer: {
@@ -47,5 +48,10 @@ module.exports = {
       libraryTarget: 'umd',
       jsonpFunction: `webpackJsonp_${name}`,
     },
+    externals: {
+      vue: "Vue",
+      "vue-router": "VueRouter",
+      vuex: "Vuex"
+    }
   },
 };

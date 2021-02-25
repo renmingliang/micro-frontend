@@ -6,6 +6,7 @@ module.exports = {
   publicPath: '/', // history - 必须绝对地址
   outputDir: 'dist',
   assetsDir: 'static',
+  productionSourceMap: false,
   devServer: {
     // host: '0.0.0.0',
     hot: true,
@@ -18,5 +19,13 @@ module.exports = {
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
+  },
+  // 自定义webpack配置
+  configureWebpack: {
+    externals: {
+      vue: "Vue",
+      "vue-router": "VueRouter",
+      vuex: "Vuex"
+    }
   }
 };

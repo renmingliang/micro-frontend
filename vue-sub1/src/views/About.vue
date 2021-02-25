@@ -9,7 +9,7 @@
 export default {
   methods: {
     handleClick() {
-      alert('click')
+      alert('click-vue-sub1')
     }
   }
 }

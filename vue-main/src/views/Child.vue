@@ -18,7 +18,7 @@ export default {
     init() {
       if (!window.qiankunStarted) {
         window.qiankunStarted = true
-        start()
+        start({ prefetch: false })
       }
     }
   }

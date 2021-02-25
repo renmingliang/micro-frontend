@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <base-main title="vue-sub2"/>
     <h3>子应用单页</h3>
     <h4>子应用自动改变主应用数据</h4>
     <img alt="Vue logo" src="./assets/logo.png">
@@ -14,6 +15,11 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  methods: {
+    handleClick() {
+      alert('click-vue-sub2')
+    }
   }
 }
 </script>

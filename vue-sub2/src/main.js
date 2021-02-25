@@ -1,6 +1,7 @@
 import './public-path';
 import Vue from 'vue';
 import App from './App.vue';
+import register from './register';
 
 Vue.config.productionTip = false;
 
@@ -30,8 +31,9 @@ function storeTest(props) {
     });
 }
 
-export async function bootstrap() {
+export async function bootstrap(props) {
   console.log('[vue-sub2] vue app bootstraped');
+  register(props);
 }
 
 export async function mount(props) {
