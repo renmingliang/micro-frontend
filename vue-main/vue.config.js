@@ -21,11 +21,11 @@ module.exports = {
     },
   },
   // 自定义webpack配置
-  configureWebpack: {
-    externals: {
-      vue: "Vue",
-      "vue-router": "VueRouter",
-      vuex: "Vuex"
-    }
-  }
+  // configureWebpack: {
+  //   externals: {
+  //     vue: "Vue",
+  //     "vue-router": "VueRouter",
+  //     vuex: "Vuex"
+  //   }
+  // }
 };
