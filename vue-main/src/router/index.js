@@ -6,8 +6,6 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-window.VueRouter = VueRouter
-
 const routes = [
   {
     path: '/about',
